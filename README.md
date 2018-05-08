@@ -29,34 +29,34 @@ The core idea is to provide the following things to DataONE:
     │        `───────────'
     │              │
     │            makes             makes
-    │           request───────────request──────────────┐
-    │              │                                   │
-    │              ▼                                   ▼
-    │    ┌───────────────────┐          ┌─────────────────────────────┐
-    │    │GET /dataset/X     │          │GET /dataset/X               │
-    │    │Accept: text/html  │          │Accept: application/ld+json  │
-    │    └───────────────────┘          └─────────────────────────────┘
-    │              │                                   │
-returns            is                                  is
-response       redirected                          redirected
-    │              to                                  to
-    │              ▼                                   ▼
-    │    ┌────────────────────────────────────────────────────────────┐
-    │    │                        PURI Service                        │
-    │    └────────────────────────────────────────────────────────────┘
-    │               │                                  │
-    │              is                                 is
-    │          redirected                         redirected
-    │              to                                 to
-    │               │                                  │
-    │               ▼                                  ▼
-    │ ┌───────────────────────────┐ ┌─────────────────────────────────┐
-    │ │search.dataone.org/#view/X │ │LOD Service                      │
-    │ │Content-Type: text/html    │ │Content-Type: application/json+ld│
-    │ └───────────────────────────┘ └─────────────────────────────────┘
-    │               │                                │
-    │               │                                │
-    └───────────────◀────────────────────────────────┘
+    │           request┬──────────request─────────────────────┐
+    │                  │                                      │
+    │                  ▼                                      ▼
+    │    ┌──────────────────────────┐         ┌───────────────────────────────┐
+    │    │GET /dataset/X            │         │GET /dataset/X                 │
+    │    │Accept: text/html         │         │Accept: application/ld+json    │
+    │    └──────────────────────────┘         └───────────────────────────────┘
+    │                  │                                      │
+    │              is  │                                      │is
+returns        redirected                                  redirected
+response           to                                          to
+    │              ▼                                           ▼
+    │            ┌────────────────────────────────────────────────────────────┐
+    │            │                        PURI Service                        │
+    │            └────────────────────────────────────────────────────────────┘
+    │               │                                          │
+    │              is                                         is
+    │          redirected                                 redirected
+    │              to │                                       to
+    │                 │                                        │
+    │                 ▼                                        ▼
+    │ ┌──────────────────────────────┐    ┌───────────────────────────────────┐
+    │ │search.dataone.org/#view/X    │    │LOD Service                        │
+    │ │Content-Type: text/html       │    │Content-Type: application/json+ld  │
+    │ └──────────────────────────────┘    └───────────────────────────────────┘
+    │                 │                                     │
+    │                 │                                     │
+    └─────────────────◀─────────────────────────────────────┘
 ```
 
 ## Installation
